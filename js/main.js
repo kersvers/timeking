@@ -62,7 +62,7 @@ $(function(){
   		  else if(i == data.ranking.length-1) _item.find('.hours').html('Only <span>'+data.ranking[i].hours_registered+' hours logged</span>. What a whimp!');
   		  else _item.find('.hours').html('<span>'+data.ranking[i].hours_registered+' hours logged</span>.');
   		  
-  		  _item.find('.hours').append(' '+data.ranking[i].performance+'% productivity');
+  		  _item.find('.hours').append('<br>'+data.ranking[i].performance+'% productivity');
   		  
   		  // get a 'funny' sentence from the lines object
   		  _item.find('.desc').html(lines[i][Math.floor((Math.random()*lines[i].length))].text);
