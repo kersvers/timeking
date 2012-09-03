@@ -1,0 +1,59 @@
+@font-face {
+    font-family: 'HelveticaNeue';
+    src: url('../fonts/helveticaneueltstd-lt-webfont.eot');
+    src: url('../fonts/helveticaneueltstd-lt-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/helveticaneueltstd-lt-webfont.woff') format('woff'),
+         url('../fonts/helveticaneueltstd-lt-webfont.ttf') format('truetype'),
+         url('../fonts/helveticaneueltstd-lt-webfont.HelveticaNeue') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'ProximaSans';
+    src: url('../fonts/ufonts.com_proximasansregular-webfont.eot');
+    src: url('../fonts/ufonts.com_proximasansregular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ufonts.com_proximasansregular-webfont.woff') format('woff'),
+         url('../fonts/ufonts.com_proximasansregular-webfont.ttf') format('truetype'),
+         url('../fonts/ufonts.com_proximasansregular-webfont.ProximaSans') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@gray:					#333333;
+@green:         #00af3f;
+
+// Links
+// -------------------------
+@linkColor:             #0073b0;
+@linkColorHover:       	#0073b0;
+
+
+// Typography
+// -------------------------
+@sansFontFamily:        Arial, sans-serif;
+
+@baseFontSize:          13px;
+@baseFontFamily:        @sansFontFamily;
+@baseLineHeight:        20px;
+
+
+// GRID
+// --------------------------------------------------
+
+// Default 940px grid
+// -------------------------
+@gridColumns:             12;
+@gridColumnWidth:         60px;
+@gridGutterWidth:         20px;
+@gridRowWidth:            (@gridColumns * @gridColumnWidth) + (@gridGutterWidth * (@gridColumns - 1));
+
+// Fluid grid
+// -------------------------
+@fluidGridColumnWidth:    6.382978723%;
+@fluidGridGutterWidth:    2.127659574%;
+
+@fontHelvetica: 'HelveticaNeue';
+@fontProxima: 'ProximaSans';

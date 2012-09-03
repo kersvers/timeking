@@ -1,0 +1,254 @@
+// Resest
+@import 'inc/reset.less';
+@import 'inc/settings.less';
+
+body{
+  .background-image('../img/bg.jpg', top center);
+  font-family: @fontHelvetica;
+  font-size: 14px;
+}
+
+strong{
+  font-weight: bold;
+}
+
+#preloader{
+  position: absolute;
+  top: 50%; left: 50%;
+  margin: -16px 0 0 -16px;
+  z-index: 1;
+}
+
+#container.in{
+
+  .opacity(100);
+  
+  .month{
+    padding-top: 0;
+  }
+  
+  #report_overview{
+    padding-top: 25px;
+    .opacity(100);
+  }
+  
+  #user_ranking{
+    margin-top: 140px;
+    .opacity(100);
+  }
+  
+}
+
+#container{
+
+  z-index: 2;
+  position: relative;
+  .transition(opacity .3s ease-out);
+  .opacity(0);
+  margin: 0 auto;
+  width: 430px;
+  padding-top: 80px;
+  
+  .month{
+  text-align: center;
+  color: #005c70;
+  font-style: italic;
+  font-size: 30px;
+  text-transform: uppercase;
+  padding-top: 15px;
+  .transition(padding .3s ease-out);
+  text-shadow: #fff 0px 1px 0px;
+  }
+  
+  #report_overview{
+    .clearfix();
+    margin: 0 auto;
+    width: 390px;
+    padding-top: 40px;
+    color: #5cb1b5;
+    text-transform: uppercase;
+    position: relative;
+    .opacity(0);
+    .transition(all .3s ease-out .1s);
+    
+      .label{
+        float: left;
+        width: 50%;
+      }
+      
+      .hours_togo{
+        float: right;
+        width: 50%;
+        text-align: right;
+      }
+    
+  }
+  
+  #report_overview_hours{
+	  position: relative;
+    .clearfix();
+    border-top: 2px solid #5cb1b5;
+    border-bottom: 2px solid #5cb1b5;
+    padding: 19px 0 12px 0;
+    margin-bottom: 10px;
+    text-shadow: #fff 0px 1px 0px;
+    
+    	#progress{
+      	position: absolute;
+      	top: 0; left: 0;
+      	display: inline-block;
+      	width: 0px;
+	      height: 2px;
+	      background-color: #EF2876;
+	      margin-top: -2px;
+      }
+    
+      .logged_hours{
+        float: left;
+        font-size: 120px;
+        line-height: 120px;
+        color: #005c70;
+        height: 90px;
+        width: 200px;
+        text-align: right;
+      }
+      
+      .logged_hours_desc{
+        float: left;
+        font-size: 52px;
+        padding-top: 5px;
+        padding-left: 10px;
+        line-height: 46px;
+          
+          span{
+            font-size: 44px;
+          }
+        
+      }
+  }
+  
+  #hours_productive{
+    display: inline-block;
+    width: 146px; height: 146px;
+    position: absolute;
+    bottom: 0; left: 50%;
+    margin-left: -73px;
+    margin-bottom: -100px;
+    .border-radius(50%);
+    background-color: #ef2876;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+        
+      h4{
+        font-size: 60px;
+        line-height: 50px;
+        padding-top: 30px;
+      }
+      
+      .perc{
+        font-size: 14px;
+      }
+      
+      .desc{
+        font-size: 14px;
+        font-family: @fontProxima;
+        color: #f9a1c4;
+      }
+  }
+  
+  #user_ranking{
+    margin: 155px auto 0;
+    width: 390px;
+    .opacity(0);
+    .transition(all .3s ease-out .3s);
+    
+      figure{
+        position: relative;
+        display: inline-block;
+        width: 106px; height: 106px;
+        
+          img{
+            position: absolute;
+            top: 50%; left: 50%;
+            margin: -53px 0 0 -53px;
+          }
+      }
+      
+      li{
+         .clearfix();
+         padding-bottom: 25px;
+         
+      }
+      
+      .user_avatar{
+        float: left;
+        width: 130px;
+        position: relative;
+        
+          .sir{
+            position: absolute;
+            width: 99px; height: 148px;
+            top: 0; left: 0;
+            margin: -40px 0 0 5px;
+            .border-radius(0px);
+            border: 0;
+            .background-image('../img/label-sir.png');
+            z-index: 55;
+            overflow: visible;
+            
+          }
+        
+          .rank{
+            position: absolute;
+            top: 0; left: 0;
+            z-index: 50;
+            display: inline-block;
+            width: 37px;
+            height: 25px;
+            color: #fff;
+            font-size: 22px;
+            text-align: center;
+            padding-top: 12px;
+            margin: -5px 0 0 -5px;
+            .border-radius(50%);
+            
+              
+              &.bg0{ background-color: #ef2876; }
+              &.bg1{ background-color: #009fe3; }
+              &.bg2{ background-color: #93bc00; }
+              &.bg3{ background-color: #ef2876; }
+              
+          }
+        
+      }
+      
+      h2{
+        color: #333333;
+        font-size: 24px;
+        padding: 15px 0 3px;
+      }
+      
+      p{
+        font-family: @fontProxima;
+        color: #333333;
+        font-size: 14px;
+        
+        &.hours{
+          color: #73aaa8;
+          
+            span{
+              border-bottom: dashed 1px #73aaa8;
+            }
+          
+        }
+        
+      }
+    
+}
+  
+}
+
+.hide{
+  display: none
+}
