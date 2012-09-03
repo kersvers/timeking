@@ -1,3 +1,7 @@
+<?php
+include('inc/settings.php');
+include('inc/functions.php');
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
@@ -6,7 +10,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Kersvers Timetable King</title>
+    <title><?php echo $config["site_title"]; ?></title>
     <meta name="description" content="">
 
     <meta name="viewport" content="width=device-width">
@@ -20,34 +24,15 @@
          chromium.org/developers/how-tos/chrome-frame-getting-started -->
     <!--[if lt IE 7]><p class="chromeframe">Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
 
-    <img id="preloader" src="img/ajax-loader.gif" alt="">
+    <img alt="" src="img/ajax-loader.gif" id="preloader">
     
     <div id="container">
-    
-      <?php
-        
-        function getWorkingDays($period)
-        {
-          $startDate = date('Y-m-01');
-          
-          if($period == 'month') $endDate = date('Y-m-t');
-          else $endDate = date('Y-m-d');
-
-          // Sets the Count
-          $count = 0;
-          $startStt = strtotime($startDate);
-          $endStt = strtotime($endDate);
-          // iterates through each day till the end day is back at the start date
-          while (date("Y-m-d", $startStt) <= date("Y-m-d",$endStt)){
-            $count = (date("w", $endStt) != 0 && date("w", $endStt) != 6) ? $count +1 : $count;
-            $endStt = $endStt - 86400;
-          }
-          return $count;
-        }
       
-      ?>
-      
-      <p class="month"><?php echo date('F Y'); ?></p>
+      <p class="month">
+      <?php 
+      $dates = getDateRange();
+      echo date('F Y', $dates['start']); ?>
+      </p>
       
       <div id="report_overview">
         <p>So far This month</p>
@@ -87,8 +72,6 @@
         
     </div>
     
-    <script>var totalHours = <?php echo getWorkingDays('month') * 5; ?>;</script>
-    <script>var workedHours = <?php echo getWorkingDays() * 5; ?>;</script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.7.2.min.js"><\/script>')</script>
 
@@ -96,11 +79,25 @@
     <script src="js/main.js"></script>
     <!-- end scripts -->
 
+    <?php if(!empty($config["ga_account_id"])): ?>
     <script>
-        var _gaq=[['_setAccount','UA-11161145-1'],['_trackPageview']];
+        var _gaq=[['_setAccount','<?php echo $config["ga_account_id"]; ?>'],['_trackPageview']];
         (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
         g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
         s.parentNode.insertBefore(g,s)}(document,'script'));
     </script>
+    <?php endif; ?>
+
+    <script type="text/javascript">
+        window.onload = setupRefresh;
+
+        function setupRefresh() {
+          setTimeout("refreshPage();", 300000); // milliseconds - every 5 mins
+        }
+        function refreshPage() {
+           window.location = location.href;
+        }
+    </script>
+
 </body>
 </html>

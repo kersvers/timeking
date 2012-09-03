@@ -625,6 +625,9 @@ strong {
 #container #user_ranking .user_avatar .rank.bg2 {
   background-color: #93bc00;
 }
+#container #user_ranking .user_avatar .rank.bg3 {
+  background-color: #ef2876;
+}
 #container #user_ranking h2 {
   color: #333333;
   font-size: 24px;
