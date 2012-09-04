@@ -1,18 +1,11 @@
 <?php
 
   function getDateRange($period = null) {
-    $date_start = strtotime('first day of this month');
-    $date_end   = strtotime("now");
-
-    // check for first day of month, then show last months data
-    if($date_end < $date_start) {
-      // lets set the start date to the first day of last month
-      $date_start = strtotime('first day of last month');
-        //$date_end = $date_start;
-    }
+    $date_start = date('Y-m-01');
+    $date_end   = date('Y-m-d');
 
     if($period == 'month') {
-      $date_end   = strtotime(sprintf("last day of %s",date("F",$date_start)));
+      $date_end   = date('Y-m-t');
     }
 
     $dates['start'] = $date_start;
@@ -24,8 +17,8 @@
   {
 
     $dates = getDateRange($period);
-    $date_start = $dates['start'];
-    $date_end   = $dates['end'];
+    $date_start = strtotime( $dates['start'] );
+    $date_end   = strtotime( $dates['end'] );
 
     // Sets the Count
     $count = 0;

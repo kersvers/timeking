@@ -28,8 +28,8 @@ function getEntries($harvestAPI, $config) {
 
   $dates = getDateRange();
 
-  $date_start = $dates['start'];
-  $date_end   = $dates['end'];
+  $date_start = strtotime( $dates['start'] );
+  $date_end   = strtotime( $dates['end'] );
 
   $range = new Harvest_Range(date('Ymd', $date_start), date('Ymd', $date_end));
 

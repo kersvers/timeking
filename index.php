@@ -30,8 +30,8 @@ include('inc/functions.php');
       
       <p class="month">
       <?php 
-      $dates = getDateRange();
-      echo date('F Y', $dates['start']); ?>
+        echo date('F Y');
+      ?>
       </p>
       
       <div id="report_overview">
