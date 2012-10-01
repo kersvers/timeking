@@ -50,7 +50,7 @@ $(function(){
   		  _item.find('.user_avatar_holder').html($('<img src="img/avatar-'+data.ranking[i].name.toLowerCase().replace(/\s/g,'-')+'.png">'));
   		  
   		  // Goalies gets the moustache / hat
-  		  if(data.ranking[i].group == "B-goalie") _item.find('.user_avatar').prepend($('<figure class="sir"></figure>'));
+  		  if(i == 0) _item.find('.user_avatar').prepend($('<figure class="sir"></figure>'));
   		  
   		  // sets the ranking numbers and name
   		  _item.find('.rank').addClass('bg'+i).html(i+1);
